@@ -4,7 +4,7 @@ class Anki:
     def __init__(self):
         self.target = None
         self.source = None
-        # self.pronounce = pronounce
+        self.pronounce = None
         self.__url = 'http://localhost:8765'
 
     def card(self):
@@ -18,7 +18,7 @@ class Anki:
                     'fields': {
                         'source': self.target,
                         'target': self.source,
-                        # 'pronounce': 'pronounce'
+                        'pronounce': self.pronounce
                     },
                     'options': {
                         'allowDuplicate': False
