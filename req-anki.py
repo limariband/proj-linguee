@@ -43,3 +43,7 @@ for line in f[3:]:
 		new_deck = func.create_deck(deck)
 		r = requests.post(url, json=new_deck)
 		r = requests.post(url, json=card)
+
+# upload to anki web
+sync = func.sync()
+r = requests.post(url, json=sync)

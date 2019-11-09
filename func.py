@@ -21,8 +21,8 @@ def add_note(deck, model, *args, **kwargs):
     "version": 6,
     "params": {
         "note": {
-            "deckName": "Default",
-            "modelName": "Basic",
+            "deckName": deck,
+            "modelName": model,
             "fields": kwargs,
             "options": {
                 "allowDuplicate": False
