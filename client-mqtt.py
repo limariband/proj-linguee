@@ -1,8 +1,15 @@
 import paho.mqtt.client as mqtt
-from main import main
+import os
 
 def on_message(client, userdata, message):
-    main({message.payload.decode('utf-8')})
+    message = message.payload.decode('utf-8')
+
+    sub = os.popen(f'python3 req-anki.py {message}')
+    sub.close()
+
+    sub = os.popen(f'python3 main.py anki.tsv')
+    sub.close()
+
 
 topic = 'reqs'
 broker = 'test.mosquitto.org'
