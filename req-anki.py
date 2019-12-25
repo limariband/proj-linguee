@@ -24,7 +24,7 @@ for head in f[:2]:
 		model = head.split('\t')[1].rstrip().lower()
 
 # make card and insert into anki
-for line in f[3:]:
+for line in f[:3:-1]:
 	card = func.add_note(deck, model, 
 		module=line.split('\t')[0].strip().lower(),
 		course=line.split('\t')[1].strip().lower(),
@@ -43,6 +43,10 @@ for line in f[3:]:
 		new_deck = func.create_deck(deck)
 		r = requests.post(url, json=new_deck)
 		r = requests.post(url, json=card)
+	elif ra['error'] == 'cannot create note because it is a duplicate':
+		sync = func.sync()
+		r = requests.post(url, json=sync)
+		exit()
 
 # upload to anki web
 sync = func.sync()

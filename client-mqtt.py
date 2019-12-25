@@ -7,7 +7,7 @@ def on_message(client, userdata, message):
     sub = os.popen(f'python3 main.py {msg}')
     sub.close()
 
-    sub = os.popen(f'python3 req-anki.py anki.tsv')
+    sub = os.popen(f'python3 req-anki.py req.tsv')
     sub.close()
 
 

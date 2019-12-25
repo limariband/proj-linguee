@@ -62,3 +62,14 @@ finally:
     for elem in rp:
         file_tsv.write(f'{pron}\t\t{elem[0]}\t{elem[1]}\n')
     file_tsv.close()
+
+with open('req.tsv', 'w', encoding='utf-8') as f:
+    
+    f.write(
+        f'Deck\tEnglish\n'\
+        f'Model\tlang\n'\
+        f'Pronounce\t\tTarget\tSource\n'\
+        )
+
+    for elem in rp:
+        f.write(f'{pron}\t\t{elem[0]}\t{elem[1]}\n')
