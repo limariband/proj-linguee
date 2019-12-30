@@ -4,10 +4,10 @@ import os
 def on_message(client, userdata, message):
     msg = message.payload.decode('utf-8')
 
-    sub = os.popen(f'python3 main.py {msg}')
+    sub = os.popen(f'python3 main.py {msg} english language')
     sub.close()
 
-    sub = os.popen(f'python3 req-anki.py req.tsv')
+    sub = os.popen(f'python3 req-anki.py dbase.tsv')
     sub.close()
 
 
